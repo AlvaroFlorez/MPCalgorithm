@@ -1,4 +1,4 @@
-Example
+illustration of the MPC algorithm
 ================
 Alvaro Flórez
 8/3/2022
