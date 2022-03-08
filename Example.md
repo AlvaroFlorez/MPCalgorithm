@@ -1,4 +1,4 @@
-illustration of the MPC algorithm
+Example
 ================
 Alvaro Flórez
 8/3/2022
@@ -7,8 +7,8 @@ Alvaro Flórez
 
 Let us consider a setting with 10 surrogate endpoints, of which 8 of
 these are non-informative. The variance-covariance matrix is the
-following: \[ =
-\] The R code for this matrix is the following:
+following: $$ =
+$$ The R code for this matrix is the following:
 
 ``` r
 library(ks)
@@ -67,6 +67,8 @@ following:
 library(Surrogate)
 plot(density(ICA.PC.10$R2_H),xlim=c(0,1),xlab='ICA',main='')
 lines(density(ICA.MPC.10$R2_H),lty=2)
+abline(v=min(ICA.PC.10$R2_H))
+abline(v=min(ICA.MPC.10$R2_H),lty=2)
 ```
 
 ![](Example_files/figure-gfm/density-1.png)<!-- -->
