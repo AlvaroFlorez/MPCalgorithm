@@ -7,8 +7,7 @@ Alvaro Flórez
 
 Let us consider a setting with 10 surrogate endpoints, of which 8 of
 these are non-informative. The variance-covariance matrix is the
-following: $$ =
-$$ The R code for this matrix is the following:
+following:
 
 ``` r
 library(ks)
@@ -25,7 +24,55 @@ Sigma = invvech(
     NA, 8, NA, 8, NA, 1, NA, 0.5, NA, 0.5, NA, 0.5, NA, 0.5, 16, NA, 8, NA, 8, NA, 8, NA,
     1, NA, 0.5, NA, 0.5, NA, 0.5, 16, NA, 8, NA, 8, NA, 1, NA, 0.5, NA, 0.5, 16, NA, 8, NA,
     1, NA, 0.5, 16, NA, 1)) 
+Sigma
 ```
+
+    ##        [,1]  [,2] [,3]  [,4]  [,5]  [,6] [,7] [,8] [,9] [,10] [,11] [,12] [,13]
+    ##  [1,]  25.0    NA 17.8    NA -10.6    NA    0   NA    0    NA     0    NA     0
+    ##  [2,]    NA  4.00   NA -0.32    NA -1.32   NA  0.0   NA   0.0    NA   0.0    NA
+    ##  [3,]  17.8    NA 16.0    NA  -4.0    NA    0   NA    0    NA     0    NA     0
+    ##  [4,]    NA -0.32   NA  1.00    NA  0.48   NA  0.0   NA   0.0    NA   0.0    NA
+    ##  [5,] -10.6    NA -4.0    NA  16.0    NA    0   NA    0    NA     0    NA     0
+    ##  [6,]    NA -1.32   NA  0.48    NA  1.00   NA  0.0   NA   0.0    NA   0.0    NA
+    ##  [7,]   0.0    NA  0.0    NA   0.0    NA   16   NA    8    NA     8    NA     8
+    ##  [8,]    NA  0.00   NA  0.00    NA  0.00   NA  1.0   NA   0.5    NA   0.5    NA
+    ##  [9,]   0.0    NA  0.0    NA   0.0    NA    8   NA   16    NA     8    NA     8
+    ## [10,]    NA  0.00   NA  0.00    NA  0.00   NA  0.5   NA   1.0    NA   0.5    NA
+    ## [11,]   0.0    NA  0.0    NA   0.0    NA    8   NA    8    NA    16    NA     8
+    ## [12,]    NA  0.00   NA  0.00    NA  0.00   NA  0.5   NA   0.5    NA   1.0    NA
+    ## [13,]   0.0    NA  0.0    NA   0.0    NA    8   NA    8    NA     8    NA    16
+    ## [14,]    NA  0.00   NA  0.00    NA  0.00   NA  0.5   NA   0.5    NA   0.5    NA
+    ## [15,]   0.0    NA  0.0    NA   0.0    NA    8   NA    8    NA     8    NA     8
+    ## [16,]    NA  0.00   NA  0.00    NA  0.00   NA  0.5   NA   0.5    NA   0.5    NA
+    ## [17,]   0.0    NA  0.0    NA   0.0    NA    8   NA    8    NA     8    NA     8
+    ## [18,]    NA  0.00   NA  0.00    NA  0.00   NA  0.5   NA   0.5    NA   0.5    NA
+    ## [19,]   0.0    NA  0.0    NA   0.0    NA    8   NA    8    NA     8    NA     8
+    ## [20,]    NA  0.00   NA  0.00    NA  0.00   NA  0.5   NA   0.5    NA   0.5    NA
+    ## [21,]   0.0    NA  0.0    NA   0.0    NA    8   NA    8    NA     8    NA     8
+    ## [22,]    NA  0.00   NA  0.00    NA  0.00   NA  0.5   NA   0.5    NA   0.5    NA
+    ##       [,14] [,15] [,16] [,17] [,18] [,19] [,20] [,21] [,22]
+    ##  [1,]    NA     0    NA     0    NA     0    NA     0    NA
+    ##  [2,]   0.0    NA   0.0    NA   0.0    NA   0.0    NA   0.0
+    ##  [3,]    NA     0    NA     0    NA     0    NA     0    NA
+    ##  [4,]   0.0    NA   0.0    NA   0.0    NA   0.0    NA   0.0
+    ##  [5,]    NA     0    NA     0    NA     0    NA     0    NA
+    ##  [6,]   0.0    NA   0.0    NA   0.0    NA   0.0    NA   0.0
+    ##  [7,]    NA     8    NA     8    NA     8    NA     8    NA
+    ##  [8,]   0.5    NA   0.5    NA   0.5    NA   0.5    NA   0.5
+    ##  [9,]    NA     8    NA     8    NA     8    NA     8    NA
+    ## [10,]   0.5    NA   0.5    NA   0.5    NA   0.5    NA   0.5
+    ## [11,]    NA     8    NA     8    NA     8    NA     8    NA
+    ## [12,]   0.5    NA   0.5    NA   0.5    NA   0.5    NA   0.5
+    ## [13,]    NA     8    NA     8    NA     8    NA     8    NA
+    ## [14,]   1.0    NA   0.5    NA   0.5    NA   0.5    NA   0.5
+    ## [15,]    NA    16    NA     8    NA     8    NA     8    NA
+    ## [16,]   0.5    NA   1.0    NA   0.5    NA   0.5    NA   0.5
+    ## [17,]    NA     8    NA    16    NA     8    NA     8    NA
+    ## [18,]   0.5    NA   0.5    NA   1.0    NA   0.5    NA   0.5
+    ## [19,]    NA     8    NA     8    NA    16    NA     8    NA
+    ## [20,]   0.5    NA   0.5    NA   0.5    NA   1.0    NA   0.5
+    ## [21,]    NA     8    NA     8    NA     8    NA    16    NA
+    ## [22,]   0.5    NA   0.5    NA   0.5    NA   0.5    NA   1.0
 
 ## Analysis using the PC and MPC algorithm
 
